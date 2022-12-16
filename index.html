@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Planner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="alert">
+            <p>Are you sure you want to make those changes?</p>
+            <button>Cancel</button>
+            <button>Continue</button>
+            <div id="progressor"></div>
+        </div>
+        <div class="button_container" id="add-task-button">
+            <div>
+                <button onclick="showTaskView()">Add Task</button>
+            </div>
+        </div>
+        <div class="table-view-container" id="TABLE_VIEW">
+            <div class="table-view">
+                <div class="table table1" id="todo">
+                    <header>
+                        <h2>Todo</h2>
+                    </header>
+                    <div class="table-list" ondrop="drop(event, 'TODO')" ondragover="allowDrop(event)">
+                        <p class="no-list" id="todo-no-list">Add some task to see here</p>
+                    </div>
+                </div>
+                <div class="table table2" id="progress">
+                    <header>
+                        <h2>In Progress</h2>
+                    </header>
+                    <div class="table-list" ondrop="drop(event, 'IN_PROGRESS')" ondragover="allowDrop(event)">
+                        <p class="no-list" id="progress-no-list">Add some task to see here</p>
+                    </div>
+                </div>
+                <div class="table table3" id="completed">
+                    <header>
+                        <h2>Done</h2>
+                    </header>
+                    <div class="table-list" ondrop="drop(event, 'COMPLETED')" ondragover="allowDrop(event)">
+                        <p class="no-list" id="completed-no-list">Add some task to see here</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="add-task-container" id="ADD_TASK">
+            <span class="close-task" onclick="hideTaskView()">X</span>
+            <div class="add-task-flex-container">
+                <div>
+                    <div class="title-container">
+                        <input type="text" placeholder="Add a title" id="title" onchange="changeHandler('title')" />
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                    <div class="description-container">
+                        <textarea cols="75" rows="25" id="description" onchange="changeHandler('description')"
+                            placeholder="Add your description"></textarea>
+                    </div>
+                </div>
+                <div class="details-container">
+                    <div class="select-container">
+                        <label>Select Reporter</label>
+                        <select id="reporter" onchange="changeHandler('reporter')">
+                            <option value="">Select Reporter</option>
+                            <option value="Avudaiappan">Avudaiappan</option>
+                            <option value="Krishna">Krishna</option>
+                        </select>
+                    </div>
+                    <br />
+                    <div class="select-container">
+                        <label>Assigned to someone</label>
+                        <select id="assignee" onchange="changeHandler('assignee')">
+                            <option value="">Select Assignee</option>
+                            <option value="Avudaiappan">Avudaiappan</option>
+                            <option value="Krishna">Krishna</option>
+                        </select>
+                    </div>
+                    <br />
+                    <div class="select-container">
+                        <label>Set Status</label>
+                        <select id="status" onchange="changeHandler('status')">
+                            <option value="">Select Status</option>
+                            <option value="TODO">Todo</option>
+                            <option value="IN_PROGRESS">In Progress</option>
+                            <option value="COMPLETED">Completed</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="add-task-cta">
+                <div>
+                    <button class="cancel">Cancel</button>
+                </div>
+                <div>
+                    <button class="submit" onclick="submit()">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>

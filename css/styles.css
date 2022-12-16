@@ -1,0 +1,202 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.table-view {
+  display: flex;
+  width: 100%;
+  padding: 5rem;
+  padding-top: 0;
+}
+.table {
+  width: 100%;
+  /* border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc; */
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+}
+/* .table:first-child {
+  border-left: 1px solid #ccc;
+} */
+.table header {
+  text-align: center;
+  background-color: #404258;
+  padding: 1rem;
+  color: white;
+}
+
+.table-list {
+  min-height: 50vh;
+  padding: 1rem;
+}
+
+.no-list {
+  text-align: center;
+  margin: 50% auto;
+}
+
+.task-card {
+  /* border: 1px solid #dddddd; */
+  text-align: left;
+  line-height: 1.5;
+  padding: 1rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+.TODO {
+  border-left: 0.5rem solid yellow;
+}
+
+.IN_PROGRESS {
+  border-left: 0.5rem solid skyblue;
+}
+
+.COMPLETED {
+  border-left: 0.5rem solid yellowgreen;
+}
+
+/* .status {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: yellow;
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  margin: 0.5rem;
+} */
+/* .TOOO {
+  background-color: yellow;
+}
+.IN_PROGRESS {
+  background-color: lightskyblue;
+}
+.COMPLETED {
+  background-color: yellowgreen;
+} */
+
+.alert {
+  margin: 0 auto;
+  position: absolute;
+  text-align: center;
+  width: 30%;
+  left: 35%;
+  background-color: #f9f9f9;
+  color: black;
+  padding: 1rem;
+  border-left: 0.5rem solid yellowgreen;
+  animation: slidein 0.7s ease-in;
+  visibility: hidden;
+}
+
+.alert button {
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+@keyframes slidein {
+  0% {
+    top: -100px;
+  }
+  100% {
+    top: 0px;
+  }
+}
+
+.button_container {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+  padding: 1rem;
+  margin-right: 4rem;
+}
+
+.button_container > div > button {
+  padding: 0.5rem 1rem;
+  background-color: #404258;
+  color: white;
+  border: none;
+  font-size: larger;
+  cursor: pointer;
+}
+.add-task-container {
+  padding: 5rem;
+  position: relative;
+}
+.add-task-flex-container {
+  display: flex;
+}
+.add-task-cta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.add-task-cta button {
+  padding: 1rem 2rem;
+  font-size: larger;
+  cursor: pointer;
+}
+
+.cancel {
+  border: none;
+  background-color: transparent;
+}
+
+.submit {
+  background-color: #404258;
+  color: white;
+  border: none;
+}
+
+.title-container input {
+  font-size: xx-large;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  outline: none;
+}
+.description-container textarea {
+  color: black;
+  font-size: larger;
+  padding: 1rem;
+  border-color: #ccc;
+  outline-color: #ccc;
+}
+
+.details-container {
+  margin-left: 3rem;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+.select-container {
+  display: flex;
+  flex-direction: column;
+}
+.select-container label {
+  font-size: x-large;
+  margin-bottom: 1rem;
+}
+.select-container select {
+  padding: 0.5rem 5rem;
+  font-size: x-large;
+}
+.close-task {
+  padding: 1.5rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: xx-large;
+  font-weight: bolder;
+  border-radius: 50%;
+  cursor: pointer;
+}
+#ADD_TASK {
+  display: none;
+}
