@@ -14,18 +14,28 @@
 
 <body>
     <div id="app">
+        <header>
+            <div class="header__title">
+                <h2>Task Planner</h2>
+            </div>
+            <div class="header__buttons">
+                <button onclick="switchView('TASK')">Tasks</button>
+                <button onclick="switchView('MEMBER')">Members</button>
+                <button onclick="switchView('TAG')">Tags</button>
+            </div>
+        </header>
         <div class="alert">
             <p>Are you sure you want to make those changes?</p>
             <button>Cancel</button>
             <button>Continue</button>
             <div id="progressor"></div>
         </div>
-        <div class="button_container" id="add-task-button">
-            <div>
-                <button onclick="showTaskView()">Add Task</button>
+        <div class="table-view-container show" id="TABLE_VIEW">
+            <div class="button_container" id="add-task-button">
+                <div>
+                    <button onclick="showTaskView()">Add Task</button>
+                </div>
             </div>
-        </div>
-        <div class="table-view-container" id="TABLE_VIEW">
             <div class="table-view">
                 <div class="table table1" id="todo">
                     <header>
@@ -54,8 +64,17 @@
                 </div>
             </div>
         </div>
-        <div class="add-task-container" id="ADD_TASK">
-            <span class="close-task" onclick="hideTaskView()">X</span>
+        <div class="add-task-container hide" id="ADD_TASK">
+            <span class="close-task" onclick="hideTaskView()">
+                <?xml version="1.0" ?>
+                <!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg
+                    height="24" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1"
+                    viewBox="0 0 512 512" width="24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <path
+                        d="M443.6,387.1L312.4,255.4l131.5-130c5.4-5.4,5.4-14.2,0-19.6l-37.4-37.6c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4  L256,197.8L124.9,68.3c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4L68,105.9c-5.4,5.4-5.4,14.2,0,19.6l131.5,130L68.4,387.1  c-2.6,2.6-4.1,6.1-4.1,9.8c0,3.7,1.4,7.2,4.1,9.8l37.4,37.6c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1L256,313.1l130.7,131.1  c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1l37.4-37.6c2.6-2.6,4.1-6.1,4.1-9.8C447.7,393.2,446.2,389.7,443.6,387.1z" />
+                </svg>
+            </span>
             <div class="add-task-flex-container">
                 <div>
                     <div class="title-container">
@@ -105,6 +124,84 @@
                 </div>
                 <div>
                     <button class="submit" onclick="submit()">Submit</button>
+                </div>
+            </div>
+        </div>
+        <div class="members-container hide" id="MEMBER_VIEW">
+            <div class="members-tab-container">
+                <button id="add-member-button" onclick="toggleMemberView('ADD')">Add Members</button>
+                <button id="show-member-button" class="not-active" onclick="toggleMemberView('SHOW')">Show
+                    Members</button>
+            </div>
+            <div class="members-content-container">
+                <div class="add-member-content-container show" id="add-member">
+                    <br />
+                    <div class="add-member">
+                        <form onsubmit="addMember(event)">
+                            <div class="form-container">
+                                <br />
+                                <input type="text" name="member_name" id="member_name" placeholder="Name of the member">
+                                <br />
+                                <button>Add Member</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="member-list-content-container hide" id="show-member">
+                    <div class="member-list" id="members-iterator">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Member ID</th>
+                                    <th>Member Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tags-container hide" id="TAG_VIEW">
+            <div class="tags-tab-container">
+                <button id="add-tag-button" onclick="toggleTagView('ADD')">Add Tags</button>
+                <button id="show-tag-button" class="not-active" onclick="toggleTagView('SHOW')">Show Tags</button>
+            </div>
+            <div class="tags-content-container">
+                <div class="add-tag-content-container show" id="add-tag">
+                    <br />
+                    <div class="add-tag">
+                        <div>
+                            <form>
+                                <div class="form-container">
+                                    <br />
+                                    <input type="text" name="name" id="tag_name" placeholder="Type a tag.."> <br />
+                                    <div class="tag-color-picker"><label>Choose color: </label><input type="color"
+                                            placeholder="Pick a color:" onchange="changeColor(event)" />
+                                    </div>
+                                    <button>Add Tag</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="tag-color-preview">
+                            <div class="color-preview-card" id="color-preview"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tag-list-content-container hide" id="show-tag">
+                    <div class="tag-list" id="tag-iterator">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Tag Color</th>
+                                    <th>Tag Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

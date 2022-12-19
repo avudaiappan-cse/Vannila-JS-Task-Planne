@@ -5,6 +5,26 @@
   font-family: "Ubuntu", sans-serif;
 }
 
+header {
+  background-color: #404258;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__buttons button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: large;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
 .table-view {
   display: flex;
   width: 100%;
@@ -57,6 +77,14 @@
 
 .COMPLETED {
   border-left: 0.5rem solid yellowgreen;
+}
+
+.hide {
+  display: none !important;
+}
+
+.show {
+  display: "";
 }
 
 /* .status {
@@ -198,5 +226,118 @@
   cursor: pointer;
 }
 #ADD_TASK {
-  display: none;
+  /* display: none; */
+}
+
+.members-container,
+.tags-container {
+  margin: 1rem;
+  padding: 1rem;
+  height: 70vh;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+    rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+}
+
+.members-tab-container,
+.tags-tab-container {
+  width: fit-content;
+}
+
+.members-tab-container button,
+.tags-tab-container button {
+  padding: 1rem 1rem;
+  background-color: #404258;
+  color: white;
+  font-size: larger;
+  border: none;
+  cursor: pointer;
+}
+
+.not-active {
+  background-color: #ccc !important;
+  color: black;
+}
+
+.tag-color-picker {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.tag-color-picker label {
+  font-size: x-large;
+}
+
+.add-member {
+  margin-top: 8rem;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.form-container input {
+  border: none;
+  border-bottom: 2px solid #ccc;
+  font-size: xx-large;
+  padding: 0.5rem;
+  outline: none;
+  margin-bottom: 1rem;
+}
+
+.form-container button {
+  padding: 1rem 0.5rem;
+  background-color: #404258;
+  color: white;
+  border: none;
+  font-size: larger;
+  cursor: pointer;
+}
+
+.add-tag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8rem;
+}
+
+.tag-color-preview {
+  width: 50%;
+}
+
+.color-preview-card {
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  background-color: red;
+  height: 150px;
+  width: 150px;
+  margin: 0 auto;
+}
+
+table {
+  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px; */
+  padding: 1rem;
+  width: 100%;
+  text-align: center;
+  font-size: larger;
+  margin-top: 2rem;
+}
+
+td {
+  padding: 1.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+td button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+td span {
+  width: 100px;
+  height: 40px;
+  display: block;
+  margin: 0 auto;
 }
