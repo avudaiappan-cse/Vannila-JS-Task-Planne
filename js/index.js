@@ -385,10 +385,13 @@ loadMembers();
 
 const addTag = (event) => {
   event.preventDefault();
-  console.log(event.target);
-  // if (!name) return;
-  // apiData.members.push({ id: Date.now(), name });
-  // setDataToLocalStorage();
+  const { member_name } = event.target;
+  if (!member_name.value) return;
+  apiData.members.push({ id: Date.now(), name: member_name.value });
+  console.log("Added Successfully!");
+  setDataToLocalStorage("force");
+  toggleMemberView("SHOW");
+  loadMembers();
 };
 const deleteTag = () => {};
 
